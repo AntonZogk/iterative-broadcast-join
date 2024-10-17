@@ -13,7 +13,7 @@ jobs:
              git clone https://github.com/cloudera/ml-runtimes.git
              cd ml-runtimes
              ls
-             docker build pbj-workbench-python3.8-cuda.Dockerfile
+             docker build ml-runtimes/pbj-workbench-python3.8-cuda.Dockerfile
              docker image ls
 
              

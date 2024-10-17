@@ -11,4 +11,4 @@ jobs:
     - name: test docker
       run:  |
              git clone https://github.com/cloudera/ml-runtimes.git
-             docker build -f pbj-workbench-python3.8-cuda.Dockerfile
+             ls

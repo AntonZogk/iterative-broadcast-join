@@ -1,21 +1,20 @@
-name: Docker Image CI
+# Action name
+name: test_cml_ci
 
+# Here, this action will be enabled on all pushes.
+# Modify this to fit your needs.
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    push
 
+# Jobs section
 jobs:
-
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run:  |
-          docker image pull https://github.com/cloudera/ml-runtimes:public-runtimes
-          docker images
-      
+    # The job that will use the container image you just pushed to ghcr.io
+    super-job:
+        runs-on: ubuntu-latest
+        container:
+            image: https://github.com/cloudera/ml-runtimes/blob/public-runtimes/pbj-workbench-python3.10-cuda.Dockerfile
+        steps:
+            - name: test_echo
+              shell: bash
+              run: |
+                echo "Oh yeah"

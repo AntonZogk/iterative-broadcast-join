@@ -15,5 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build https://github.com/cloudera/ml-runtimes/blob/public-runtimes
-
+      run: docker build https://raw.githubusercontent.com/docker-library/redis/master/2.8.10/Dockerfile

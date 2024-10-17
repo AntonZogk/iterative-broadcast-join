@@ -15,4 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker pull https://github.com/cloudera/ml-runtimes/blob/public-runtimes
+      run:  |
+          docker image pull --all-tags ubuntu https://github.com/cloudera/ml-runtimes/blob/public-runtimes
+          docker images
+      

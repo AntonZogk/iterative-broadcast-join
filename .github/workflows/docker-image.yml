@@ -12,7 +12,7 @@ jobs:
     super-job:
         runs-on: ubuntu-latest
         container:
-            image: https://github.com/cloudera/ml-runtimes/blob/public-runtimes/pbj-workbench-python3.10-cuda.Dockerfile
+            image: https://github.com/cloudera/ml-runtimes/blob/public-runtimes/pbj-workbench-python3.10-cuda.Dockerfilel:latest 
         steps:
             - name: test_echo
               shell: bash

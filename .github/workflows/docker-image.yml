@@ -10,9 +10,6 @@ jobs:
     - uses: actions/checkout@v4
     - name: test docker
       run:  |
-             git clone https://github.com/cloudera/ml-runtimes.git
-             cd ml-runtimes
-             ls
-             echo "$PWD"
-             docker build ml-runtimes .
-             docker image ls
+            docker build -f 'https://github.com/cloudera/ml-runtimes/blob/public-runtimes/pbj-workbench-python3.8-cuda.Dockerfile' --target my-target --label my-label .
+
+

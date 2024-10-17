@@ -15,6 +15,5 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build https://github.com/cloudera/ml-runtimes.git/pbj-workbench-python3.10-cuda.Dockerfile
-
+      run: docker build https://github.com/cloudera/ml-runtimes/blob/public-runtimes/pbj-workbench-python3.10-cuda.Dockerfile
 

@@ -11,9 +11,7 @@ jobs:
     - name: test docker
       run:  |
              git clone https://github.com/cloudera/ml-runtimes.git
-             cd ml-runtimes
-             ls
-             docker build .
+             docker build -t ml-runtimes .
              docker image ls
 
 

@@ -10,9 +10,8 @@ jobs:
     - uses: actions/checkout@v4
     - name: test docker
       run:  |
-             git clone https://github.com/cloudera/ml-runtimes.git
-             docker build -t ml-runtimes .
-             docker image ls
+            docker pull cloudera/ml-runtime-workbench-python3.9-standard-rsync
+            docker image ls
 
 
              

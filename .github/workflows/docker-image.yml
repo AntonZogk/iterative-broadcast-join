@@ -14,5 +14,5 @@ jobs:
              cd ml-runtimes
              ls
              echo "$PWD"
-             docker build -f pbj-workbench-python3.8-cuda.Dockerfile --target my-target --label my-label .
+             docker build -f 'pbj-workbench-python3.8-cuda.Dockerfile' --target my-target --label my-label .
              docker image ls

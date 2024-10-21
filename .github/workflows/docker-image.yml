@@ -8,12 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: test docker
-      run:  |
-             git clone https://github.com/cloudera/ml-runtimes.git
+    - name: clone runtimes
+      run:   git clone https://github.com/cloudera/ml-runtimes.git
+    - name: buid cml_3.9
+      run: |  
              cd ml-runtimes
-             ls
-             echo "$PWD"
              docker build -t cml_3.9 -f 'pbj-workbench-python3.9-standard.Dockerfile' .
+    - name: run image
+      run: |              
              docker run -i -t cml_3.9
              ls

@@ -16,5 +16,6 @@ jobs:
              docker build -t cml_3.9 -f 'pbj-workbench-python3.9-standard.Dockerfile' .
     - name: run image
       run: |              
-             docker run -i -t cml_3.9
+             docker run -i cml_3.9
              ls
+             echo hi

@@ -16,5 +16,17 @@ jobs:
       run: |  
             ls
             cd ml-runtimes
-            #docker build -t cml_3.9 -f 'pbj-workbench-python3.9-standard.Dockerfile' .
+            docker build -t cml_3.9 -f 'pbj-workbench-python3.9-standard.Dockerfile' .
+
+    - name: create container
+      run:  docker run -id --name test1 cml_3.9 
+
+    - name: check folders
+      run:  ls 
+
+    - name: check python version
+      run: docker exec test1 dir
+
+    - name: check folders2
+      run:  ls 
 

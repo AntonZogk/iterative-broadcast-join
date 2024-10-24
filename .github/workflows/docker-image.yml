@@ -19,7 +19,7 @@ jobs:
             docker build -t cml_3.9 -f "pbj-workbench-python3.9-standard.Dockerfile" .
 
     - name: create container
-      run:  docker run v /.:/. --name test1 cml_3.9 
+      run:  docker run -v /.:/. --name test1 cml_3.9 
 
     - name: check folders
       run:  ls 

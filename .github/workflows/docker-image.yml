@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: check
-      run:   $pwd
+      run:   pwd
     - name: clone runtimes
       run:   git clone https://github.com/cloudera/ml-runtimes.git
     - name: buid cml_3.9
@@ -26,7 +26,7 @@ jobs:
       run:  ls 
 
     - name: check python version
-      run: docker exec test1 $pwd
+      run: docker exec test1 pwd
 
     - name: check folders2
       run:  ls 

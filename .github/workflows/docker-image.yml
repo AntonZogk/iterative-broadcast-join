@@ -8,22 +8,24 @@ jobs:
   # Enforces the update of a changelog file on every pull request.
   build_cml:
     runs-on: ubuntu-latest
+    
     steps:
+      - uses: actions/checkout@v3
       - name: checkout cloudera cml
         uses: actions/checkout@master
         with:
           repository: cloudera/ml-runtimes
 
-      - name: build
-        run: docker build -t cml_3.9 -f "pbj-workbench-python3.9-standard.Dockerfile" .
-      - name: info
-        run: docker info
+      #- name: build
+      #  run: docker build -t cml_3.9 -f "pbj-workbench-python3.9-standard.Dockerfile" .
+      #- name: info
+      #  run: docker info
 
       - name: ls
         run: ls
         
-      - name: image ls
-        run: docker image ls
+      #- name: image ls
+      #  run: docker image ls
               
         
 

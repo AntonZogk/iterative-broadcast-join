@@ -3,31 +3,17 @@ name: test_docker
 on:
   push:
     branches: [ "master" ]
+    
 jobs:
-  build:
+  # Enforces the update of a changelog file on every pull request.
+  test1:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: check
-      run:   pwd
-    - name: clone runtimes
-      run:   git clone https://github.com/cloudera/ml-runtimes.git
-    - name: buid cml_3.9
-      run: |  
-            ls
-            cd ml-runtimes
-            $pwd
-            docker build -t cml_3.9 -f "pbj-workbench-python3.9-standard.Dockerfile" .
+      # checks for updates to CHANGELOG.md
+      # https://github.com/marketplace/actions/changelog-enforcer
+      - uses: cloudera/ml-runtimes@public-runtimes
 
-    - name: create container
-      run:  docker run --name test1 cml_3.9 
-
-    - name: check folders
-      run:  ls 
-
-    - name: check python version
-      run: docker exec test1 echo "$PWD"
-
-    - name: check folders2
-      run:  ls 
-
+      - name: test
+        run: |
+          ls
+          pwd

@@ -10,22 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v3
       - name: checkout cloudera cml
         uses: actions/checkout@master
         with:
           repository: cloudera/ml-runtimes
 
-      #- name: build
-      #  run: docker build -t cml_3.9 -f "pbj-workbench-python3.9-standard.Dockerfile" .
-      #- name: info
-      #  run: docker info
+      - name: build
+        run: docker build -t cml_3.9 -f "pbj-workbench-python3.9-standard.Dockerfile" .
+      - name: ls in cml
+        run: |
+          ls
+          docker image ls
 
-      - name: ls
-        run: ls
+      - name: checkout root
+        uses: actions/checkout@v3
         
-      #- name: image ls
-      #  run: docker image ls
-              
+      - name: ls in root
+        run: |
+          ls
+          docker image ls
+
         
 

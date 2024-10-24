@@ -22,6 +22,7 @@ jobs:
 
   test2:
     runs-on: ubuntu-latest
+    needs: build_cml
     steps:
     - uses: actions/checkout@v3
     - name: check

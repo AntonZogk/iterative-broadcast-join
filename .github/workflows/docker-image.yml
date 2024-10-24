@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout cloudera cml
-        uses: actions/checkout@public-runtimes
+        uses: actions/checkout@master
         with:
           repository: cloudera/ml-runtimes
 

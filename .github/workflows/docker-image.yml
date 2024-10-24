@@ -9,23 +9,24 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: check
-      run:   ls
+      run:   $pwd
     - name: clone runtimes
       run:   git clone https://github.com/cloudera/ml-runtimes.git
     - name: buid cml_3.9
       run: |  
             ls
             cd ml-runtimes
+            $pwd
             docker build -t cml_3.9 -f "pbj-workbench-python3.9-standard.Dockerfile" .
 
     - name: create container
-      run:  docker run -v /.:/. --name test1 cml_3.9 
+      run:  docker run --name test1 cml_3.9 
 
     - name: check folders
       run:  ls 
 
     - name: check python version
-      run: docker exec test1 ls -lsa
+      run: docker exec test1 $pwd
 
     - name: check folders2
       run:  ls 

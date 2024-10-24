@@ -6,7 +6,7 @@ on:
     
 jobs:
   # Enforces the update of a changelog file on every pull request.
-  test1:
+  build_cml:
     runs-on: ubuntu-latest
     steps:
       - name: checkout cloudera cml
@@ -14,13 +14,19 @@ jobs:
         with:
           repository: cloudera/ml-runtimes
 
-      - name: test files
+      - name: build
         run: docker build -t cml_3.9 -f "pbj-workbench-python3.9-standard.Dockerfile" .
 
       - name: image ls
         run: docker image ls
 
-      - name:  ls
-        run: ls
-          
-          
+  test2:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: check
+      run:   ls
+    - name: image ls
+      run: docker image ls
+
+ 

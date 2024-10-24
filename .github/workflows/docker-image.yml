@@ -25,7 +25,7 @@ jobs:
       run:  ls 
 
     - name: check python version
-      run: docker exec test1 dir
+      run: docker exec test1 ls -lsa
 
     - name: check folders2
       run:  ls 

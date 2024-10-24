@@ -9,11 +9,12 @@ jobs:
   test1:
     runs-on: ubuntu-latest
     steps:
-      # checks for updates to CHANGELOG.md
-      # https://github.com/marketplace/actions/changelog-enforcer
-      - uses: cloudera/ml-runtimes@public-runtimes
+      - name: checkout cloudera cml
+        uses: actions/checkout@public-runtimes
+        with:
+          repository: cloudera/ml-runtimes
 
-      - name: test
+      - name: test files
         run: |
           ls
           pwd

@@ -24,11 +24,13 @@ jobs:
 
       - name: checkout root
         uses: actions/checkout@v3
-        
-      - name: ls in root
-        run: |
-          ls
-          docker image ls
+
+      - name: run
+        run:  docker run -id --name test1 cml_3.9 
+      - name: test1
+        run:  docker cp $(pwd)/. cml_3.9:/
+      - name: test2
+        run:  docker exec cml_3.9 ls -la /
 
         
 

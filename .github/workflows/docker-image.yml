@@ -1,36 +1,16 @@
-name: test_docker
+name: pre-commit
 
 on:
+  pull_request:
   push:
-    branches: [ "master" ]
-    
+    branches: ["master"]
+
 jobs:
-  # Enforces the update of a changelog file on every pull request.
-  build_cml:
+  pre-commit:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: checkout cloudera cml
-        uses: actions/checkout@master
-        with:
-          repository: cloudera/ml-runtimes
-
-      - name: build
-        run: docker build -t cml_3.9 -f "pbj-workbench-python3.9-standard.Dockerfile" .
-      - name: ls in cml
-        run: |
-          ls
-          docker image ls
-
-      - name: checkout root
-        uses: actions/checkout@v3
-
-      - name: run
-        run:  docker run -id --name test1 cml_3.9 
-      - name: test1
-        run:  docker cp $(pwd)/. test1:/
-      - name: test2
-        run:  docker exec test1 ls -la /
-
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v3
+    - uses: pre-commit/action@v3.0.1
         
 
